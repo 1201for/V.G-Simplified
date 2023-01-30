@@ -12,10 +12,7 @@ elseif not getgenv then
 end 
 do
     for i,v in pairs(game:GetChildren()) do
-        if getgenv then
-            Env[v.Name] = v 
-        elseif not getgenv then
-            Global[v.Name] = v
-        end 
+        Env[v.Name] = v
+        Env["VirtualUser"] = Get.VirtualUser
     end 
 end

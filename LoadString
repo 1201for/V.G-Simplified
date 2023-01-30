@@ -1,0 +1,21 @@
+repeat
+    task.wait()
+until game:IsLoaded()
+
+local Env = getgenv()
+local Global = _G
+local Set = setmetatable({},{__index = function(A, B) return game:GetService(B)end})
+if getgenv then
+    Env.Get = Set
+elseif not getgenv then
+    Global.Get = Set
+end 
+do
+    for i,v in pairs(game:GetChildren()) do
+        if getgenv then
+            Env[v.Name] = v 
+        elseif not getgenv then
+            Global[v.Name] = v
+        end 
+    end 
+end

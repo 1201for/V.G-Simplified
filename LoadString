@@ -1,7 +1,7 @@
 repeat
     task.wait()
 until game:IsLoaded()
-
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/1201for/V.G-Simplified/main/Table'),true))()
 local Env = getgenv()
 local Global = _G
 local Set = setmetatable({},{__index = function(A, B) return game:GetService(B)end})
@@ -16,3 +16,8 @@ do
         Env["VirtualUser"] = Get.VirtualUser
     end 
 end
+for i,v in pairs(Table) do
+    if i == game.PlaceId then
+        loadstring(game:HttpGet((v),true))()
+    end 
+end 

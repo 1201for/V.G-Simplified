@@ -1,3 +1,4 @@
-return Table = {
+
+getgenv().Table = {
     [920587237] = "https://raw.githubusercontent.com/1201for/V.G-Smplified-Games/main/Adopt-Me"
 }

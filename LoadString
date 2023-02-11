@@ -1,18 +1,60 @@
+local G = getgenv and getgenv() or _G or Shit
+G.VG_Simplified = {
+    Loaded = game:IsLoaded(),
+    ScriptLoaded = false
+}
 repeat
     task.wait()
-until game:IsLoaded()
+until VG_Simplified.Loaded
 local Games = loadstring(game:HttpGet(('https://raw.githubusercontent.com/1201for/V.G-Simplified/main/Table'),true))()
-local Env = getgenv and getgenv() or _G or Sh
-local Global = _G
-local Set = setmetatable({},{__index = function(A, B) return game:GetService(B)end})
-if getgenv then
-    Env.Get = Set
-end 
+
 for i,v in pairs(game:GetChildren()) do
-    Env[v.ClassName] = v
+    G[v.ClassName] = v
 end
+
+if CoreGui:FindFirstChild("VGHUB",true) then
+    CoreGui:FindFirstChild("VGHUB",true):Destory()
+end 
+
+
+local BlurEffect = Instance.new("BlurEffect")
+BlurEffect.Parent = Lighting
+BlurEffect.Size = 0
+local ScreenGui = Instance.new("ScreenGui")
+if syn and syn.protect_gui then
+    syn.protect_gui(ScreenGui)
+    ScreenGui.Parent = CoreGui
+elseif gethui then
+    ScreenGui.Parent = gethui()
+else
+    ScreenGui.Parent = CoreGui
+end
+local ImageLabel = Instance.new("ImageLabel")
+ScreenGui.Parent = CoreGui
+ImageLabel.Parent = ScreenGui
+ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.Position = UDim2.new(0.5, -(303 / 2), 0.5, -(263 / 2))
+ImageLabel.Rotation = 0
+ImageLabel.Size = UDim2.new(0, 303, 0, 263)
+ImageLabel.Image = "rbxassetid://12458319988"
+ImageLabel.ImageTransparency = 1
+for Index = 1, 50, 2 do
+    BlurEffect.Size = Index
+    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency - 0.1
+    wait()
+end
+wait(0.1)
+ImageLabel:TweenPosition(UDim2.new(0.5, 342 / 1, 0.5, 263 / 2, Enum.EasingDirection.Out, Enum.EasingStyle.Quint, 0.5))
+wait(0.1)
+for Index = 1, 50, 2 do
+    BlurEffect.Size = 50 - Index
+    ImageLabel.ImageTransparency = ImageLabel.ImageTransparency + 0.1
+    wait()
+end
+BlurEffect:Destroy()
+ScreenGui:Destroy()
+
 for i,v in pairs(Games) do
-    if i == game.PlaceId then
-        loadstring(game:HttpGet((v),true))()
-    end 
+    loadstring(game:HttpGet((v),true))()
 end 

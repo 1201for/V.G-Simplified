@@ -56,5 +56,7 @@ BlurEffect:Destroy()
 ScreenGui:Destroy()
 
 for i,v in pairs(Games) do
-    loadstring(game:HttpGet((v),true))()
+    if i == game.PlaceId then
+        loadstring(game:HttpGet((v),true))()
+    end 
 end 

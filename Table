@@ -1,5 +1,6 @@
 local Table = {
     [920587237] = "https://raw.githubusercontent.com/1201for/V.G-Smplified-Games/main/Adopt-Me",
-    [11746859781] = "https://raw.githubusercontent.com/1201for/V.G-Smplified-Games/main/Bubble-Gum-Clicker"
+    [11746859781] = "https://raw.githubusercontent.com/1201for/V.G-Smplified-Games/main/Bubble-Gum-Clicker",
+    [6735572261] = "https://raw.githubusercontent.com/1201for/V.G-Smplified-Games/main/Pilgrammed"
 }
 return Table
